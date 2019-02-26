@@ -14,6 +14,19 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+/* get one */
+router.get("/:id", async (req, res, next) => {
+  try {
+    console.log(req.params.id);
+    const todo = await Todo.findById(req.params.id);
+    res.json({
+      todo
+    });
+  } catch (e) {
+    next(e);
+  }
+});
+
 /* add new todo */
 router.post("/add", async (req, res, next) => {
   try {
