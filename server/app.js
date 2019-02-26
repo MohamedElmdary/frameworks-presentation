@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const cors = require("cors");
+const morgan = require("morgan");
 
 require("./model/todo.model");
 mongoose
@@ -12,6 +14,8 @@ mongoose
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(morgan("dev"));
+app.use(cors());
 
 app.use("/todo", require("./routes/todo.routes"));
 
@@ -25,4 +29,5 @@ app.use((error, req, res, next) => {
   });
 });
 
-app.listen(8080, () => console.log("server started!"));
+const port = 8080;
+app.listen(port, () => console.log(`server started on ${port} .`));
