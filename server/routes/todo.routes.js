@@ -2,6 +2,7 @@ const router = require("express").Router();
 const mongoose = require("mongoose");
 const Todo = mongoose.model("Todo");
 
+/* get all todos */
 router.get("/", async (req, res, next) => {
   try {
     const todos = await Todo.find({});
@@ -13,6 +14,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+/* add new todo */
 router.post("/add", async (req, res, next) => {
   try {
     const { title, content } = req.body;
@@ -34,6 +36,7 @@ router.post("/add", async (req, res, next) => {
   }
 });
 
+/* delete todo by id */
 router.delete("/:id", async (req, res, next) => {
   try {
     const todo = await Todo.findByIdAndDelete(req.params.id);
@@ -45,6 +48,7 @@ router.delete("/:id", async (req, res, next) => {
   }
 });
 
+/* edit todo by id */
 router.put("/:id", async (req, res, next) => {
   try {
     const { title, content } = req.body;
@@ -71,6 +75,7 @@ router.put("/:id", async (req, res, next) => {
   }
 });
 
+/* express error handle */
 router.use((error, req, res, next) => {
   if (typeof error !== "string") {
     error = error.message || "Something went wrong";
