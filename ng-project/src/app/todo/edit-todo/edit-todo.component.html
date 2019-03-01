@@ -1,0 +1,20 @@
+<section class="form" *ngIf="todo">
+  <form (ngSubmit)="editTodo(f)" #f="ngForm">
+    <input
+      type="text"
+      name="title"
+      placeholder="title"
+      [(ngModel)]="title"
+      required
+    />
+    <textarea
+      name="content"
+      placeholder="content"
+      [(ngModel)]="content"
+      required
+    ></textarea>
+    <button type="submit">
+      add todo
+    </button>
+  </form>
+</section>

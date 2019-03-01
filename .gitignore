@@ -2,3 +2,4 @@ server/node_modules
 regular/node_modules
 react-project/node_modules
 ng-project/node_modules
+.vscode

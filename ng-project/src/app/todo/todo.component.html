@@ -1,0 +1,6 @@
+<!-- {{ todos | json }} -->
+<main>
+  <ol type="1" id="todos">
+    <li class="app-todo-item" *ngFor="let todo of todos" [todo]="todo"></li>
+  </ol>
+</main>

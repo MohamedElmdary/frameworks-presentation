@@ -1,0 +1,6 @@
+<h4 class="title">Title: {{ todo.title }}</h4>
+<p>Content: {{ todo.content }}</p>
+<div class="todos-actions">
+  <span (click)="removeTodo(todo._id)">remove</span>
+  <span [routerLink]="'/edit-todo/' + todo._id">edit</span>
+</div>

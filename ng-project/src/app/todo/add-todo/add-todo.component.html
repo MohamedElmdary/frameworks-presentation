@@ -1,0 +1,9 @@
+<section class="form">
+  <form (ngSubmit)="addTodo(f)" #f="ngForm">
+    <input type="text" name="title" ngModel placeholder="title" required />
+    <textarea name="content" ngModel placeholder="content" required></textarea>
+    <button type="submit">
+      add todo
+    </button>
+  </form>
+</section>
